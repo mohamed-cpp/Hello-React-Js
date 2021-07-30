@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './components/Header/Header'
+import Users from './components/Users'
 
 function App() {
   const NAME = "Mohamed"
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <Header data="Hello From App.js" />
       <h1>Hello {NAME}</h1>
+      <Users />
     </div>
   );
 }
