@@ -4,6 +4,10 @@ import Css from './header.module.css'
 import Button from '../Parts/Button'
 
 const Header = (props) => {
+  const doAction = (e) => {
+    alert('From Outside');
+    console.log('e');
+  }
   return (
     <header>
       <h1
@@ -21,8 +25,8 @@ const Header = (props) => {
         >
         Another Way to Use Style
       </h1>
-      <Button color="pink" text="Click" />
-      <Button color="green" text="Click Here" />
+      <Button color="pink" doAction={doAction} text="Click" />
+      <Button color="green" doAction={doAction} text="Click Here" />
 
     </header>
   )
