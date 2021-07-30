@@ -1,6 +1,8 @@
-import React from 'react'
+// import React from 'react'
 import PropTypes from 'prop-types'
 import Css from './header.module.css'
+import Button from '../Parts/Button'
+
 const Header = (props) => {
   return (
     <header>
@@ -19,6 +21,9 @@ const Header = (props) => {
         >
         Another Way to Use Style
       </h1>
+      <Button color="pink" text="Click" />
+      <Button color="green" text="Click Here" />
+
     </header>
   )
 }
