@@ -59,6 +59,10 @@ function App() {
       is_admin: false
     }
   ])
+  const addUser = (data) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    setUsers([...users, {id, ...data}])
+  }
   const deleteUser = (id) => {
     setUsers(users.filter((user) => user.id !== id ))
   }
@@ -71,7 +75,7 @@ function App() {
       {/* <Header data="Hello From App.js" /> */}
       <h1>Hello {NAME}</h1>
       <div className="flex items-center justify-center">
-        <AddUser />
+        <AddUser addUser={addUser} />
       </div>
       { users.length <= 0 ? 'No Users':
       <Users users={users} deleteUser={deleteUser} toggleAdmin={toggleAdmin} />}

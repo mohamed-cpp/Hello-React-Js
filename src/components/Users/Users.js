@@ -1,5 +1,5 @@
 import User from './User'
-const Users = ({color, text, doAction, users, deleteUser, toggleAdmin}) => {
+const Users = ({color, text, doAction, users, deleteUser, toggleAdmin, addUser}) => {
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

@@ -4,20 +4,21 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  name: yup.string().required('required').min(3, 'min').max(10, 'max'),
+  name: yup.string().required('required').min(3, 'min').max(15, 'max'),
   email: yup.string().required('required').email('email'),
   date: yup.string().required('required'),
   is_admin: yup.string().required('required')
 });
 
-const AddUser = ({user, deleteUser, toggleAdmin}) => {
+const AddUser = ({addUser}) => {
 
   const { register, handleSubmit, formState:{ errors } } = useForm({
     resolver: yupResolver(schema),
     mode: 'all'
   });
   const onSubmit = (data) => {
-    console.log(data)
+    addUser(data)
+    // return promise and clear form
   };
 
   return (
