@@ -4,13 +4,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  name: yup.string('string').required('required').min(3, 'min').max(10, 'max')
+  name: yup.string().required('required').min(3, 'min').max(10, 'max'),
+  email: yup.string().required('required').email('email')
 });
 
 const AddUser = ({user, deleteUser, toggleAdmin}) => {
 
   const { register, handleSubmit, formState:{ errors } } = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(schema),
+    mode: 'all'
   });
   const onSubmit = data => console.log(data);
 
@@ -21,14 +23,15 @@ const AddUser = ({user, deleteUser, toggleAdmin}) => {
           <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="name">
             Name
           </label>
-          <input {...register("name")} onBlur={handleSubmit()} className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" type="text" placeholder="Jane" />
+          <input {...register("name")} className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="name" type="text" placeholder="Jane" />
           {errors.name && <p className="text-red-500 text-xs italic">{errors.name?.message}</p>}
         </div>
         <div className="w-full md:w-1/2 px-3">
-          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-last-name">
-            Last Name
+          <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="email">
+            Email
           </label>
-          <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe" />
+          <input {...register("email")} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="email" placeholder="john@doe.come" />
+          {errors.email && <p className="text-red-500 text-xs italic">{errors.email?.message}</p>}
         </div>
       </div>
       <div className="flex flex-wrap -mx-3 mb-6">
