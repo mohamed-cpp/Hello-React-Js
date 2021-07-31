@@ -56,12 +56,16 @@ function App() {
       is_admin: false
     }
   ])
+  const deleteUser = (id) => {
+    setUsers(users.filter((user) => user.id !== id ))
+  }
   const NAME = "Mohamed"
   return (
     <div className="App">
       <Header data="Hello From App.js" />
       <h1>Hello {NAME}</h1>
-      <Users users={users} />
+      { users.length <= 0 ? 'No Users':
+      <Users users={users} deleteUser={deleteUser} />}
     </div>
   );
 }
