@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import React from 'react'
+import './App.css';
 import Header from './components/Header/Header'
 import Users from './components/Users/Users'
 
@@ -59,13 +60,16 @@ function App() {
   const deleteUser = (id) => {
     setUsers(users.filter((user) => user.id !== id ))
   }
+  const toggleAdmin = (id) => {
+    setUsers(users.map((user) => user.id === id ? {...user, is_admin: !user.is_admin} : user ))
+  }
   const NAME = "Mohamed"
   return (
     <div className="App">
       <Header data="Hello From App.js" />
       <h1>Hello {NAME}</h1>
       { users.length <= 0 ? 'No Users':
-      <Users users={users} deleteUser={deleteUser} />}
+      <Users users={users} deleteUser={deleteUser} toggleAdmin={toggleAdmin} />}
     </div>
   );
 }

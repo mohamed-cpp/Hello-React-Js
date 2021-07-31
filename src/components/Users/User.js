@@ -1,7 +1,7 @@
 import {GrUser, GrUserAdmin} from 'react-icons/gr'
 import {FaRegAddressCard, FaTrashAlt} from 'react-icons/fa'
 
-const User = ({user, deleteUser}) => {
+const User = ({user, deleteUser, toggleAdmin}) => {
   return (
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">
@@ -23,10 +23,10 @@ const User = ({user, deleteUser}) => {
         <div className="text-sm text-gray-900">{user.date}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        <div className="text-sm text-gray-900">
+        <div className="text-sm text-gray-900" onDoubleClick={ () => toggleAdmin(user.id)}>
         {user.is_admin ?
-           <GrUserAdmin />
-           : <GrUser />}
+           <GrUserAdmin style={{cursor: 'pointer'}} />
+           : <GrUser style={{cursor: 'pointer'}} />}
         </div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

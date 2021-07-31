@@ -1,5 +1,5 @@
 import User from './User'
-const Users = ({color, text, doAction, users, deleteUser}) => {
+const Users = ({color, text, doAction, users, deleteUser, toggleAdmin}) => {
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -27,7 +27,7 @@ const Users = ({color, text, doAction, users, deleteUser}) => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {users.map((user) => (
-                  <User key={user.id} user={user} deleteUser={deleteUser} />
+                  <User key={user.id} user={user} deleteUser={deleteUser} toggleAdmin={toggleAdmin} />
                 ))}
               </tbody>
             </table>
