@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import React from 'react'
 import './App.css';
+// eslint-disable-next-line
 import Header from './components/Header/Header'
 import Users from './components/Users/Users'
+import AddUser from './components/Users/AddUser'
 
 function App() {
   // eslint-disable-next-line
@@ -66,10 +68,14 @@ function App() {
   const NAME = "Mohamed"
   return (
     <div className="App">
-      <Header data="Hello From App.js" />
+      {/* <Header data="Hello From App.js" /> */}
       <h1>Hello {NAME}</h1>
+      <div className="flex items-center justify-center">
+        <AddUser />
+      </div>
       { users.length <= 0 ? 'No Users':
       <Users users={users} deleteUser={deleteUser} toggleAdmin={toggleAdmin} />}
+
     </div>
   );
 }
