@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect  } from 'react'
 import './App.css';
 // eslint-disable-next-line
 import Header from './components/Header/Header'
@@ -7,9 +7,23 @@ import AddUser from './components/Users/AddUser'
 import Button from './components/Parts/Button'
 
 function App() {
-  // eslint-disable-next-line
   const [users, setUsers] = useState([])
   const [showAddUser, setShowAddUser]  = useState(false)
+  useEffect(() => {
+    const getUsers = async () => {
+      const UsersFromServer = await fetchUsers()
+      setUsers(UsersFromServer)
+    }
+    getUsers()
+    document.title = `Welcome`;
+  }, []);
+
+
+  const fetchUsers = async () => {
+    const res = await fetch(process.env.REACT_APP_SERVER + '/users')
+    return await res.json()
+  }
+
   const addUser = (data) => {
     return new Promise((resolve, reject) => {
       setTimeout(function() {
@@ -19,8 +33,13 @@ function App() {
       }, 2000);
     });
   }
-  const deleteUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id ))
+  const deleteUser = async  (id) => {
+    const res = await fetch(`${process.env.REACT_APP_SERVER}/users/${id}`, {
+      method: 'DELETE',
+    })
+    res.status === 200
+      ? setUsers(users.filter((user) => user.id !== id))
+      : alert('Error Deleting This Task')
   }
   const toggleAdmin = (id) => {
     setUsers(users.map((user) => user.id === id ? {...user, is_admin: !user.is_admin} : user ))
