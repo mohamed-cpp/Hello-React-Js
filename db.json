@@ -6,6 +6,20 @@
       "email": "Aenean.massa@dolorQuisque.ca",
       "date": "17/06/2022",
       "is_admin": false
+    },
+    {
+      "id": 7817,
+      "name": "Mohamed Gamal",
+      "email": "manlook041@gmail.com",
+      "date": "2021-08-04",
+      "is_admin": false
+    },
+    {
+      "id": 3051,
+      "name": "Mohamed Gamal",
+      "email": "manlook041@gmail.com",
+      "date": "2021-08-07",
+      "is_admin": true
     }
   ]
 }

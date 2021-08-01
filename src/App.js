@@ -24,14 +24,19 @@ function App() {
     return await res.json()
   }
 
-  const addUser = (data) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(function() {
-        const id = Math.floor(Math.random() * 10000) + 1
-        setUsers([...users, {id, ...data}])
-        resolve(true);
-      }, 2000);
-    });
+  const addUser = async (data) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    data["is_admin"] = (data["is_admin"] === 'true')
+    const res = await fetch(`${process.env.REACT_APP_SERVER}/users`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({id, ...data}),
+    })
+    const user = await res.json()
+    setUsers([...users, user])
+    return true
   }
   const deleteUser = async  (id) => {
     const res = await fetch(`${process.env.REACT_APP_SERVER}/users/${id}`, {
