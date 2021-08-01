@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css';
 // eslint-disable-next-line
 import Header from './components/Header/Header'
 import Users from './components/Users/Users'
 import AddUser from './components/Users/AddUser'
+import Button from './components/Parts/Button'
 
 function App() {
   // eslint-disable-next-line
@@ -59,6 +59,7 @@ function App() {
       is_admin: false
     }
   ])
+  const [showAddUser, setShowAddUser]  = useState(false)
   const addUser = (data) => {
     return new Promise((resolve, reject) => {
       setTimeout(function() {
@@ -79,8 +80,9 @@ function App() {
     <div className="App">
       {/* <Header data="Hello From App.js" /> */}
       <h1>Hello {NAME}</h1>
+      <Button color={showAddUser ? 'red' : 'green'} doAction={() => setShowAddUser(!showAddUser)} text={showAddUser ? 'Close Form' : 'Add User' } />
       <div className="flex items-center justify-center">
-        <AddUser addUser={addUser} />
+        {showAddUser && <AddUser addUser={addUser} />}
       </div>
       { users.length <= 0 ? 'No Users':
       <Users users={users} deleteUser={deleteUser} toggleAdmin={toggleAdmin} />}

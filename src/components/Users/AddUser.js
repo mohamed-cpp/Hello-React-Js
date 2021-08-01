@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -11,16 +11,16 @@ const schema = yup.object().shape({
 });
 
 const AddUser = ({addUser}) => {
-  var loading = false
+  const [loading, setLoading]  = useState(false)
   const { register, handleSubmit, formState:{ errors }, reset } = useForm({
     resolver: yupResolver(schema),
     mode: 'all'
   });
   const onSubmit = (data) => {
-    loading = true
+    setLoading(true)
     addUser(data).then(() => {
       reset()
-      loading = false
+      setLoading(false)
     })
   };
 
