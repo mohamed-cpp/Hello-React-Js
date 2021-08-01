@@ -46,8 +46,20 @@ function App() {
       ? setUsers(users.filter((user) => user.id !== id))
       : alert('Error Deleting This Task')
   }
-  const toggleAdmin = (id) => {
-    setUsers(users.map((user) => user.id === id ? {...user, is_admin: !user.is_admin} : user ))
+  const toggleAdmin = async  (id) => {
+    const updateUser = users.filter((user) => user.id === id)[0]
+    updateUser['is_admin'] = !updateUser['is_admin']
+    await fetch(`${process.env.REACT_APP_SERVER }/users/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(updateUser),
+    }).then((req) => {
+      if(req.status === 200){
+        setUsers(users.map((user) => user.id === id ? {...user, updateUser } : user ))
+      }
+    })
   }
   const NAME = "Mohamed"
   return (
