@@ -60,8 +60,13 @@ function App() {
     }
   ])
   const addUser = (data) => {
-    const id = Math.floor(Math.random() * 10000) + 1
-    setUsers([...users, {id, ...data}])
+    return new Promise((resolve, reject) => {
+      setTimeout(function() {
+        const id = Math.floor(Math.random() * 10000) + 1
+        setUsers([...users, {id, ...data}])
+        resolve(true);
+      }, 2000);
+    });
   }
   const deleteUser = (id) => {
     setUsers(users.filter((user) => user.id !== id ))

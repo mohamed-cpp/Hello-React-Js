@@ -11,14 +11,17 @@ const schema = yup.object().shape({
 });
 
 const AddUser = ({addUser}) => {
-
-  const { register, handleSubmit, formState:{ errors } } = useForm({
+  var loading = false
+  const { register, handleSubmit, formState:{ errors }, reset } = useForm({
     resolver: yupResolver(schema),
     mode: 'all'
   });
   const onSubmit = (data) => {
-    addUser(data)
-    // return promise and clear form
+    loading = true
+    addUser(data).then(() => {
+      reset()
+      loading = false
+    })
   };
 
   return (
@@ -65,7 +68,7 @@ const AddUser = ({addUser}) => {
         </div>
       </div>
       <div className="w-full flex justify-center mb-5">
-        <button className="items-center shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
+        <button disabled={loading} className={`items-center shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded ${loading ? 'cursor-not-allowed' : ''}`} type="submit">
           Add User
         </button>
     </div>
