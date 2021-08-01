@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": 5041,
+      "name": "Colton",
+      "email": "Aenean.massa@dolorQuisque.ca",
+      "date": "17/06/2022",
+      "is_admin": false
+    }
+  ]
+}
