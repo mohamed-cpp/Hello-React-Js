@@ -1,10 +1,13 @@
 import React, { useState, useEffect  } from 'react'
+import { BrowserRouter as Router, Route, useLocation } from 'react-router-dom'
 import './App.css';
 // eslint-disable-next-line
 import Header from './components/Header/Header'
 import Users from './components/Users/Users'
 import AddUser from './components/Users/AddUser'
 import Button from './components/Parts/Button'
+import Footer from './components/Footer'
+import About from './components/About'
 
 function App() {
   const [users, setUsers] = useState([])
@@ -62,17 +65,30 @@ function App() {
     })
   }
   const NAME = "Mohamed"
+  const location = useLocation()
   return (
     <div className="App">
       {/* <Header data="Hello From App.js" /> */}
-      <h1>Hello {NAME} to {process.env.REACT_APP_APP_NAME}</h1>
-      <Button color={showAddUser ? 'red' : 'green'} doAction={() => setShowAddUser(!showAddUser)} text={showAddUser ? 'Close Form' : 'Add User' } />
-      <div className="flex items-center justify-center">
-        {showAddUser && <AddUser addUser={addUser} />}
-      </div>
-      { users.length <= 0 ? 'No Users':
-      <Users users={users} deleteUser={deleteUser} toggleAdmin={toggleAdmin} />}
+      <h1>Hello {NAME} to {process.env.REACT_APP_APP_NAME} you are at {location.pathname} path</h1>
+        <Route
+          path='/'
+          exact
+          render={(props) => (
+            <>
+              <Button color={showAddUser ? 'red' : 'green'} doAction={() => setShowAddUser(!showAddUser)} text={showAddUser ? 'Close Form' : 'Add User' } />
+              <div className="flex items-center justify-center">
+                {showAddUser && <AddUser addUser={addUser} />}
+              </div>
+              { users.length <= 0 ? 'No Users':
+              <Users users={users} deleteUser={deleteUser} toggleAdmin={toggleAdmin} />}
+            </>
+          )}
+        />
 
+        <Route path='/about' component={About} />
+      <div className="flex items-center justify-center">
+        <Footer />
+      </div>
     </div>
   );
 }
