@@ -1,0 +1,10 @@
+import reducer1 from 'path'
+import reducer2 from 'path'
+import {combineReducers} from 'redux'
+
+const reducers = combineReducers({
+  reducer2: reducer2,
+  reducer2: reducer2
+})
+
+export default reducers

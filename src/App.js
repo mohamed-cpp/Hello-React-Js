@@ -1,4 +1,5 @@
 import React, { useState, useEffect  } from 'react'
+// eslint-disable-next-line
 import { BrowserRouter as Router, Route, useLocation } from 'react-router-dom'
 import './App.css';
 // eslint-disable-next-line
