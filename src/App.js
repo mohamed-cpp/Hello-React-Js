@@ -75,8 +75,8 @@ function App() {
       {/* <Header data="Hello From App.js" /> */}
       <h1>Hello {NAME} to {process.env.REACT_APP_APP_NAME} you are at {location.pathname} path</h1>
       <p> <FormattedMessage id="lang"
-            defaultMessage="Learn React"
-            description="Link on react page"/></p>
+            defaultMessage="English"
+            description="English"/></p>
         <Route
           path='/'
           exact

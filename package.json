@@ -27,6 +27,7 @@
     "build": "craco build",
     "test": "craco test",
     "server": "json-server --watch db.json --port 8080",
+    "extract": "formatjs extract",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -48,6 +49,7 @@
     ]
   },
   "devDependencies": {
+    "@formatjs/cli": "^4.2.30",
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.36",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"

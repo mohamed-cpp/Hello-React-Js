@@ -1,5 +1,6 @@
 {
-  "lang" : "english",
-  "ver" : "Version {vers}",
-  "changelang" : "عربى"
+  "changelang": "عربى",
+  "copyright": "Copyright © {year}",
+  "lang": "English",
+  "ver": "Version {vers}"
 }

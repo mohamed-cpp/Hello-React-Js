@@ -12,7 +12,6 @@ const About = () => {
       <FormattedMessage
           id="ver"
           defaultMessage="Version {vers}"
-          description="Version 0.0.1"
           values={{ vers: "0.0.1" }}/>
       </h4>
       <Link to='/'>Go Back</Link>
