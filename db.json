@@ -32,7 +32,7 @@
       "name": "Mohamed Gamal",
       "email": "manlook041@gmail.com",
       "date": "2021-08-18",
-      "is_admin": true,
+      "is_admin": false,
       "test_ar": "عربى",
       "test_en": "english",
       "updateUser": {
@@ -59,7 +59,7 @@
       "name": "John Dee",
       "email": "admin@admin.com",
       "date": "2021-08-07",
-      "is_admin": true,
+      "is_admin": false,
       "test_ar": "عربى",
       "test_en": "english"
     }

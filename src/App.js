@@ -1,15 +1,15 @@
 import React, { useState, useEffect  } from 'react'
 import {FormattedMessage} from 'react-intl'
 // eslint-disable-next-line
-import { BrowserRouter as Router, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter as Router, Route, useLocation, Switch } from 'react-router-dom'
 import './App.css';
 // eslint-disable-next-line
 import Header from './components/Header/Header'
-import Users from './components/Users/Users'
-import AddUser from './components/Users/AddUser'
-import Button from './components/Parts/Button'
 import Footer from './components/Footer'
 import About from './components/About'
+import NotFound from './components/NotFound';
+import Table from './components/Users/Table';
+
 
 function App() {
   const [users, setUsers] = useState([])
@@ -74,25 +74,20 @@ function App() {
     <div className="App">
       {/* <Header data="Hello From App.js" /> */}
       <h1>Hello {NAME} to {process.env.REACT_APP_APP_NAME} you are at {location.pathname} path</h1>
-      <p> <FormattedMessage id="lang"
+      <p>
+        <FormattedMessage id="lang"
             defaultMessage="English"
-            description="English"/></p>
-        <Route
-          path='/'
-          exact
-          render={(props) => (
-            <>
-              <Button color={showAddUser ? 'red' : 'green'} doAction={() => setShowAddUser(!showAddUser)} text={showAddUser ? 'Close Form' : 'Add User' } />
-              <div className="flex items-center justify-center">
-                {showAddUser && <AddUser addUser={addUser} />}
-              </div>
-              { users.length <= 0 ? 'No Users':
-              <Users users={users} deleteUser={deleteUser} toggleAdmin={toggleAdmin} />}
-            </>
-          )}
-        />
-
+            description="English"/>
+      </p>
+      <Switch>
+      <Route
+        path='/'
+        exact
+        component={() => (<Table showAddUser={showAddUser} users={users} deleteUser={deleteUser} toggleAdmin={toggleAdmin} addUser={addUser} setShowAddUser={setShowAddUser} />)}
+      />
         <Route path='/about' component={About} />
+        <Route exact component={NotFound} />
+      </Switch>
       <div className="flex items-center justify-center">
         <Footer />
       </div>
