@@ -18,13 +18,13 @@ let store = createStore(reducer,
 
 
 ReactDOM.render(
-  <Wrapper>
-    <Router>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </Router>
-  </Wrapper>,
+  <Router>
+    <Wrapper>
+        <Provider store={store}>
+          <App />
+        </Provider>
+    </Wrapper>
+  </Router>,
   document.getElementById('root')
 );
 
