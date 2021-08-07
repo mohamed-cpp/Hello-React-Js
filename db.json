@@ -5,27 +5,53 @@
       "name": "Colton",
       "email": "Aenean.massa@dolorQuisque.ca",
       "date": "17/06/2022",
-      "is_admin": false
+      "is_admin": true,
+      "test_ar": "عربى",
+      "test_en": "english"
     },
     {
       "id": 7817,
       "name": "Mohamed Gamal",
       "email": "manlook041@gmail.com",
       "date": "2021-08-04",
-      "is_admin": false
+      "is_admin": false,
+      "test_ar": "عربى",
+      "test_en": "english"
     },
     {
       "id": 3409,
       "name": "محمد عبدالله",
       "email": "muhamed.gamal9876@gmail.com",
       "date": "2021-09-08",
-      "is_admin": false,
+      "is_admin": true,
+      "test_ar": "عربى",
+      "test_en": "english"
+    },
+    {
+      "id": 9237,
+      "name": "Mohamed Gamal",
+      "email": "manlook041@gmail.com",
+      "date": "2021-08-18",
+      "is_admin": true,
+      "test_ar": "عربى",
+      "test_en": "english",
       "updateUser": {
-        "id": 3409,
-        "name": "محمد عبدالله",
-        "email": "muhamed.gamal9876@gmail.com",
-        "date": "2021-09-08",
-        "is_admin": true
+        "id": 9237,
+        "name": "Mohamed Gamal",
+        "email": "manlook041@gmail.com",
+        "date": "2021-08-18",
+        "is_admin": false,
+        "test_ar": "عربى",
+        "test_en": "english",
+        "updateUser": {
+          "id": 9237,
+          "name": "Mohamed Gamal",
+          "email": "manlook041@gmail.com",
+          "date": "2021-08-18",
+          "is_admin": true,
+          "test_ar": "عربى",
+          "test_en": "english"
+        }
       }
     }
   ]

@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types'
 import Css from './header.module.css'
 import Button from '../Parts/Button'

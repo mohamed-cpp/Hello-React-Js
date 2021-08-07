@@ -1,7 +1,10 @@
+import React, {useContext} from 'react'
 import {GrUser, GrUserAdmin} from 'react-icons/gr'
 import {FaRegAddressCard, FaTrashAlt} from 'react-icons/fa'
+import {Context} from "../Context/Wrapper"
 
 const User = ({user, deleteUser, toggleAdmin}) => {
+  const context = useContext(Context)
   return (
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">
@@ -12,6 +15,7 @@ const User = ({user, deleteUser, toggleAdmin}) => {
           <div className="ml-4">
             <div className="text-sm font-medium text-gray-900">
             {user.name} <FaRegAddressCard style={{color:'red'}} />
+            <p>{user['test_'+context.locale]}</p>
             </div>
           </div>
         </div>

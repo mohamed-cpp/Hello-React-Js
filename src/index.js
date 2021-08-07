@@ -4,6 +4,7 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter as Router} from 'react-router-dom'
+import Wrapper from './components/Context/Wrapper'
 //require('dotenv').config()
 
 
@@ -17,13 +18,13 @@ let store = createStore(reducer,
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Wrapper>
     <Router>
       <Provider store={store}>
         <App />
       </Provider>
     </Router>
-  </React.StrictMode>,
+  </Wrapper>,
   document.getElementById('root')
 );
 

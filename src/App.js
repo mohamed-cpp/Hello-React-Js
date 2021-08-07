@@ -1,4 +1,5 @@
 import React, { useState, useEffect  } from 'react'
+import {FormattedMessage} from 'react-intl'
 // eslint-disable-next-line
 import { BrowserRouter as Router, Route, useLocation } from 'react-router-dom'
 import './App.css';
@@ -31,6 +32,8 @@ function App() {
   const addUser = async (data) => {
     const id = Math.floor(Math.random() * 10000) + 1
     data["is_admin"] = (data["is_admin"] === 'true')
+    data["test_ar"] = 'عربى'
+    data["test_en"] = 'english'
     const res = await fetch(`${process.env.REACT_APP_SERVER}/users`, {
       method: 'POST',
       headers: {
@@ -71,6 +74,9 @@ function App() {
     <div className="App">
       {/* <Header data="Hello From App.js" /> */}
       <h1>Hello {NAME} to {process.env.REACT_APP_APP_NAME} you are at {location.pathname} path</h1>
+      <p> <FormattedMessage id="lang"
+            defaultMessage="Learn React"
+            description="Link on react page"/></p>
         <Route
           path='/'
           exact
