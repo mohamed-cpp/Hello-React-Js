@@ -2,6 +2,9 @@ import React, {useContext} from 'react'
 import {GrUser, GrUserAdmin} from 'react-icons/gr'
 import {FaRegAddressCard, FaTrashAlt} from 'react-icons/fa'
 import {Context} from "../Context/Wrapper"
+import { Link } from 'react-router-dom'
+import { removeWhiteSpace } from "../../helper/helper"
+
 
 const User = ({user, deleteUser, toggleAdmin}) => {
   const context = useContext(Context)
@@ -14,7 +17,7 @@ const User = ({user, deleteUser, toggleAdmin}) => {
           </div>
           <div className="ml-4">
             <div className="text-sm font-medium text-gray-900">
-            {user.name} <FaRegAddressCard style={{color:'red'}} />
+            <Link to={`/users/${removeWhiteSpace(user.name,"_")}-${user.id}`}>{user.name} <FaRegAddressCard style={{color:'red'}} /></Link>
             <p>{user['test_'+context.locale]}</p>
             </div>
           </div>

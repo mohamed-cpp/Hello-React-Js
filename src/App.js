@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 import About from './components/About'
 import NotFound from './components/NotFound';
 import Table from './components/Users/Table';
-
+import ShowUser from './components/Users/ShowUser';
 
 function App() {
   const [users, setUsers] = useState([])
@@ -85,8 +85,9 @@ function App() {
         exact
         component={() => (<Table showAddUser={showAddUser} users={users} deleteUser={deleteUser} toggleAdmin={toggleAdmin} addUser={addUser} setShowAddUser={setShowAddUser} />)}
       />
-        <Route path='/about' component={About} />
-        <Route exact component={NotFound} />
+      <Route path="/users/:id" component={ShowUser} />
+      <Route path='/about' component={About} />
+      <Route exact component={NotFound} />
       </Switch>
       <div className="flex items-center justify-center">
         <Footer />
