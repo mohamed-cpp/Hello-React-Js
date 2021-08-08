@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react'
 import { getIdFromSlug } from "../../helper/helper"
 import {Context} from "../Context/Wrapper"
-import MetaTags from 'react-meta-tags';
-
+// import MetaTags from 'react-meta-tags';
+import {Helmet} from "react-helmet";
 const ShowUser = (props) => {
   const [user, setUser] = useState({})
   const context = useContext(Context)
@@ -31,11 +31,11 @@ const ShowUser = (props) => {
 
   return (
     <div>
-      <MetaTags>
+      <Helmet>
         <title>{user.name}</title>
         <meta name="description" content={user.name} />
         <meta property="og:title" content={user.name} />
-      </MetaTags>
+      </Helmet>
       {user.id} <br />
       {user.name} <br />
       {user.email} <br />
